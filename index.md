@@ -1,4 +1,4 @@
-# Load necessary libraries
+## Load necessary libraries
 
 install.packages("neonUtilities")
 install.packages("dplyr")
@@ -10,7 +10,7 @@ library(ggplot2)
 library(tidyr)
 
 #--------------------------
-# LOAD AND COMBINE SOIL TEMP — SOAP SITE
+## LOAD AND COMBINE SOIL TEMP — SOAP SITE
 #--------------------------
 soil_temp <- read.csv("soiltempsoap22_24.csv")
 soil_temp2 <- read.csv("soiltempsoap20_22.csv")
@@ -32,7 +32,7 @@ write.csv(soil_temp_all, "combinedsoapsoiltemp.csv")
 write.csv(soap_soil_avg, "soapsoiltempavg.csv")
 
 #--------------------------
-# PLOT: SOAP Soil Temp
+## PLOT: SOAP Soil Temp
 #--------------------------
 ggplot(soap_soil_avg, aes(x = as.numeric(year), y = soilTempMean)) +
   geom_line(color = "darkred") +
@@ -41,7 +41,7 @@ ggplot(soap_soil_avg, aes(x = as.numeric(year), y = soilTempMean)) +
   theme_minimal()
 
 #--------------------------
-# LOAD AND COMBINE SOIL TEMP — ABBY SITE
+## LOAD AND COMBINE SOIL TEMP — ABBY SITE
 #--------------------------
 asoil_temp <- read.csv("soiltempabby20_24.csv")
 asoil_temp2 <- read.csv("soiltempabby16_20.csv")
@@ -59,7 +59,7 @@ write.csv(asoil_all, "combinedasoapsoiltemp.csv")
 write.csv(abby_soil_avg, "abbysoiltempavg.csv")
 
 #--------------------------
-# PLOT: ABBY Soil Temp
+## PLOT: ABBY Soil Temp
 #--------------------------
 ggplot(abby_soil_avg, aes(x = as.numeric(year), y = soilTempMean)) +
   geom_line(color = "darkred") +
@@ -68,7 +68,7 @@ ggplot(abby_soil_avg, aes(x = as.numeric(year), y = soilTempMean)) +
   theme_minimal()
 
 #--------------------------
-# LOAD AND COMBINE PRECIPITATION — ABBY SITE
+## LOAD AND COMBINE PRECIPITATION — ABBY SITE
 #--------------------------
 aprecip <- precipabby16_20x[, c("startDateTime", "secPrecipBulk")]
 aprecip2 <- precipabby20_24x[, c("startDateTime", "secPrecipBulk")]
@@ -82,7 +82,7 @@ write.csv(combinedabbyprecip, "combinedabbyprecip.csv")
 write.csv(yearly_precipabby, "yearly_precipabby.csv")
 
 #--------------------------
-# LOAD AND COMBINE PRECIPITATION — SOAP SITE
+## LOAD AND COMBINE PRECIPITATION — SOAP SITE
 #--------------------------
 sprecip <- read.csv("precipsoap20_24.csv")
 sprecip2 <- read.csv("precipsoap16_20.csv")
@@ -99,7 +99,7 @@ write.csv(combinedsoapprecip, "combinedsoapprecip.csv")
 write.csv(yearly_precip, "soapprecipavg.csv")
 
 #--------------------------
-# PLOT: Combined Precipitation Trends
+## PLOT: Combined Precipitation Trends
 #--------------------------
 combined_precipsites <- rbind(yearly_precip, yearly_precipabby)
 combined_precipsites$year <- as.numeric(as.character(combined_precipsites$year))
@@ -113,7 +113,7 @@ ggplot(combined_precipsites, aes(x = year, y = secPrecipBulk, color = site)) +
   theme_minimal()
 
 #--------------------------
-# LOAD AND CLEAN VEGETATION DATA
+## LOAD AND CLEAN VEGETATION DATA
 #--------------------------
 shrubs <- read.csv("shrubs")
 nonwoody <- read.csv("non-woody")
@@ -133,13 +133,13 @@ nw_abby_summary <- nw_abby %>%
   summarise(mean_basal = mean(basalStemDiameter, na.rm = TRUE))
 
 #--------------------------
-# JOIN PRECIP AND NON-WOODY DATA — ABBY SITE
+## JOIN PRECIP AND NON-WOODY DATA — ABBY SITE
 #--------------------------
 yearly_precipabby$year <- as.numeric(as.character(yearly_precipabby$year))
 df_combined <- left_join(nw_abby_summary, yearly_precipabby, by = "year")
 
 #--------------------------
-# PLOT: RELATIONSHIP — Basal Stem vs Precip
+## PLOT: RELATIONSHIP — Basal Stem vs Precip
 #--------------------------
 ggplot(df_combined, aes(x = secPrecipBulk, y = mean_basal, color = factor(year))) +
   geom_point(size = 3) +
@@ -153,7 +153,7 @@ ggplot(df_combined, aes(x = secPrecipBulk, y = mean_basal, color = factor(year))
   theme_minimal()
 
 #--------------------------
-# LINEAR MODEL STATS BY YEAR
+## LINEAR MODEL STATS BY YEAR
 #--------------------------
 df_clean <- df_combined %>%
   filter(!is.na(mean_basal) & !is.na(secPrecipBulk))
