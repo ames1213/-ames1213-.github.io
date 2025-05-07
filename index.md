@@ -9,9 +9,9 @@ library(dplyr)
 library(ggplot2)
 library(tidyr)
 
-#--------------------------
+
 ## LOAD AND COMBINE SOIL TEMP — SOAP SITE
-#--------------------------
+
 soil_temp <- read.csv("soiltempsoap22_24.csv")
 soil_temp2 <- read.csv("soiltempsoap20_22.csv")
 soil_temp3 <- read.csv("soiltempsoap18_20.csv")
