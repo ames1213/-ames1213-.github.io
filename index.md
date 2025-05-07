@@ -27,8 +27,6 @@ To assess how environmental variables—specifically **soil temperature** and **
 
 ## 📈 Visualizations
 
-### Soil Temperature Trends (SOAP Site)
-![Soil Temperature Plot](copyofecologyposter(1).pdf)
 
 ---
 
