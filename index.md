@@ -28,10 +28,7 @@ To assess how environmental variables—specifically **soil temperature** and **
 ## 📈 Visualizations
 
 ### Soil Temperature Trends (SOAP Site)
-![Soil Temperature Plot](plots/soil_temp_plot.png)
-
-### Vegetation vs. Precipitation (ABBY Site)
-![Veg vs Precip Plot](plots/veg_precip_plot.png)
+![Soil Temperature Plot](copyofecologyposter(1).pdf)
 
 ---
 
