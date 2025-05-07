@@ -1,2 +1,5 @@
 # -ames1213-.github.io
-Ecology data cleaning code
+
+Undergraduate researcher in Biology & Sociology/Anthropology
+This project was completed for Agnes Scott College Data Intensive Ecology.
+
